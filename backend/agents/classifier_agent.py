@@ -52,5 +52,6 @@ class ClassifierAgent:
                 Customer Email:
                 {email_content}
                 """
-
-        return self.model_w_structured_output.invoke(prompt)
+        output=self.model_w_structured_output.invoke(prompt)
+        print(output)
+        return output
