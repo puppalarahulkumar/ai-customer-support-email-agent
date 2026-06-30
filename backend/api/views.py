@@ -5,14 +5,16 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
+from agents.email_agent import EmailAgent
 
 from django.http import JsonResponse
 from django.views import View
-from backend.agents.email_agent import app
+
 
 from django.shortcuts import render
 
-from backend.api.serializers import EmailRequestSerializer
+from api.serializers import EmailRequestSerializer
+from rag.load_data import Storing
 
 # Create your views here.
 
@@ -29,6 +31,23 @@ class ProcessMailAPIView(APIView):
 
         data = serializer.validated_data
 
-        
+        agent=EmailAgent()
+        result=agent.app.invoke(data)
+
 
         return JsonResponse(result)
+
+class RebuildRAGAPIView(APIView):
+
+    def post(self,request):
+        
+        store=Storing()
+
+        store.load_data("rag/docs/knowledge_base.txt")
+
+        return Response(
+            {
+                "message": "Vector store rebuilt successfully"
+            },
+            status=status.HTTP_200_OK
+        )

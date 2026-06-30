@@ -1,0 +1,111 @@
+# Customer Support Knowledge Base
+
+## Password Reset
+
+If a customer forgets their password, they can reset it by following these steps:
+
+1. Go to the login page.
+2. Click the "Forgot Password" link.
+3. Enter the registered email address.
+4. Check the email inbox for a password reset link.
+5. Follow the instructions in the email to create a new password.
+
+If the reset email is not received within 10 minutes, the customer should check their spam or junk folder.
+
+---
+
+## Subscription Billing
+
+Customers are billed automatically at the beginning of each billing cycle.
+
+If a customer reports being charged twice:
+
+1. Verify the payment history.
+2. Check for multiple active subscriptions.
+3. Confirm whether the customer used multiple payment methods.
+4. Escalate the case to the billing team for investigation.
+
+Billing-related complaints are considered high priority.
+
+---
+
+## Export Feature Troubleshooting
+
+If the export feature fails:
+
+1. Ensure the application is updated to the latest version.
+2. Verify that the selected file format is supported.
+3. Clear browser cache and retry.
+4. Restart the application.
+5. If the issue persists, collect error logs and report the bug to the engineering team.
+
+Known issue:
+Some users may experience export failures when selecting PDF format on older application versions.
+
+---
+
+## API Integration Issues
+
+Customers using API integrations may occasionally encounter timeout errors.
+
+Common causes include:
+
+* Network instability
+* Large request payloads
+* Temporary server maintenance
+* Rate limit restrictions
+
+Recommended actions:
+
+1. Retry the request after a few minutes.
+2. Verify API credentials.
+3. Review API logs.
+4. Contact technical support if 504 Gateway Timeout errors continue.
+
+API failures affecting production systems should be treated as critical priority issues.
+
+---
+
+## Feature Requests
+
+Feature requests should be recorded and forwarded to the product team.
+
+Common requests include:
+
+* Dark mode support
+* Mobile application improvements
+* Advanced reporting dashboards
+* Additional export formats
+
+Feature requests are generally considered low priority unless they impact business operations.
+
+---
+
+## Account Management
+
+Customers can update their profile information through the Account Settings page.
+
+Supported actions:
+
+* Change password
+* Update email address
+* Modify notification preferences
+* Manage subscription plans
+
+For security reasons, customers must verify their identity before changing their registered email address.
+
+---
+
+## Contact Support
+
+Customers can contact support through:
+
+* Email support
+* Live chat
+* Support portal
+
+Support hours:
+
+Monday to Friday: 9:00 AM - 6:00 PM
+
+Critical production issues are monitored 24/7 and receive immediate attention.

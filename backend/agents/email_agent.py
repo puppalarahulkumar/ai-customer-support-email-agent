@@ -5,8 +5,8 @@ from langchain.tools import tool
 from langchain_protocol import TypedDict
 from langgraph.graph import END, START, StateGraph
 
-from classifier_agent import EmailClassification
-from classifier_agent import ClassifierAgent
+from agents.classifier_agent import EmailClassification
+from agents.classifier_agent import ClassifierAgent
 
 class EmailAgentState(TypedDict):
     # Raw email data
@@ -65,7 +65,7 @@ class EmailAgent:
 
     def search_documentation(state: EmailAgentState):
         """This tool is used to call the search documentation feature"""
-        from doc_agent import DocSearchAgent
+        from agents.doc_agent import DocSearchAgent
         print("entered the search documentation")
         doc_search_agent = DocSearchAgent()
         search_results=doc_search_agent.search_docs(state["email_content"])
@@ -75,24 +75,25 @@ class EmailAgent:
             "search_result" : search_results
         }
 
-    @tool
+    
     def draft_response(state: EmailAgentState):
         """Draft the appropiate response for the mail"""
 
-        from backend.agents.response_agent import ResponseAgent
+        from agents.response_agent import ResponseAgent
         response_agent = ResponseAgent()
         context = state.get("search_results", [])
         response = response_agent.generate_response(state["email_content"], context)
+        
         return {
-            "draft_response": response
+            "draft_response": response.content
         }
 
-    @tool
+   
     def send_reply(state: EmailAgentState):
         """we will send responses to the customers here."""
         print("we have sent the reply")
 
-    @tool
+    
     def human_review(state: EmailAgentState):
         """This triggers and send the mail to the teams if any emergency situation is there"""
         from backend.agents.human_agent import HumanAgent

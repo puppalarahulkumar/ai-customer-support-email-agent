@@ -3,7 +3,7 @@
 from typing import Literal
 
 from langchain_protocol import TypedDict
-from chat_generation import ChatGenerationAgent
+from agents.chat_generation import ChatGenerationAgent
 
 class EmailClassification(TypedDict):
     intent: Literal["question", "bug", "billing", "feature", "complex"]
